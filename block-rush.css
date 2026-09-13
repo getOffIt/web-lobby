@@ -101,63 +101,91 @@ button {
   background: #72ffc7;
 }
 
-.webgl-warning {
+.software-stage {
   position: absolute;
   inset: 0;
   z-index: 5;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 12px;
-  padding: 24px;
-  background: linear-gradient(180deg, rgba(155, 220, 255, 0.92), rgba(183, 242, 174, 0.92));
-  color: #16202c;
-  text-align: center;
+  overflow: hidden;
+  background: #9bdcff;
 }
 
-.webgl-warning p {
-  margin: 0;
-  padding: 7px 12px;
-  border: 2px solid rgba(22, 32, 44, 0.18);
+.software-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+}
+
+.software-badge {
+  position: absolute;
+  top: 72px;
+  left: 12px;
+  z-index: 6;
+  padding: 7px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.76);
-  font-size: 15px;
+  background: rgba(22, 32, 44, 0.78);
+  color: #ffffff;
+  font-size: 11px;
   font-weight: 950;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
-.webgl-warning h1 {
-  max-width: min(760px, 100%);
-  margin: 0;
-  font-size: clamp(40px, 7vw, 86px);
-  font-weight: 950;
-  letter-spacing: 0;
-  line-height: 0.92;
+.software-hud {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  left: 12px;
+  z-index: 6;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
-.webgl-warning span {
-  max-width: 560px;
-  font-size: 17px;
-  font-weight: 850;
-  line-height: 1.35;
-}
-
-.webgl-warning a {
-  display: grid;
-  min-height: 52px;
-  min-width: 170px;
-  place-items: center;
-  border: 3px solid #16202c;
+.software-hud div,
+.software-hud button {
+  border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  background: #44ffb4;
-  color: #16202c;
-  font-weight: 950;
-  text-decoration: none;
-  box-shadow: 0 14px 26px rgba(22, 32, 44, 0.2);
+  background: rgba(22, 32, 44, 0.82);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(22, 32, 44, 0.2);
 }
 
-.webgl-warning a:hover {
-  background: #72ffc7;
+.software-hud div {
+  display: grid;
+  min-width: 94px;
+  gap: 2px;
+  padding: 8px 12px;
+}
+
+.software-hud span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.software-hud strong {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.software-hud button {
+  min-width: 82px;
+  min-height: 44px;
+  padding: 0 14px;
+  cursor: pointer;
+  font-weight: 900;
+  pointer-events: auto;
+}
+
+.software-hud button:hover {
+  background: rgba(41, 59, 82, 0.9);
 }
 
 .confetti {
@@ -289,7 +317,7 @@ button {
   position: absolute;
   bottom: 16px;
   left: 50%;
-  z-index: 4;
+  z-index: 7;
   width: min(560px, calc(100% - 28px));
   min-height: 46px;
   padding: 12px 16px;
@@ -343,6 +371,34 @@ button {
   }
 
   .hud button {
+    min-width: 66px;
+    min-height: 42px;
+    padding: 0 8px;
+  }
+
+  .software-badge {
+    top: 68px;
+    left: 8px;
+  }
+
+  .software-hud {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    align-items: stretch;
+  }
+
+  .software-hud div {
+    min-width: 0;
+    flex: 1;
+    padding: 7px 8px;
+  }
+
+  .software-hud strong {
+    font-size: 15px;
+  }
+
+  .software-hud button {
     min-width: 66px;
     min-height: 42px;
     padding: 0 8px;
